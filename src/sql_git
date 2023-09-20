@@ -1,0 +1,24 @@
+CREATE TABLE products(
+    id serial primary key,
+    product_name varchar(30) not null,
+    manufacturer varchar(20) not null ,
+    productCound integer default 0,
+    price numeric
+);
+insert into products(product_name, manufacturer,productCound, price)
+values ('Iphone x','Apple',2,71000),
+       ('Iphone 8','Apple',3,56000),
+    ('Galxy s9','Samsung',6,56000),
+    ('Galaxy s8 Plus','Samsung',2,46000),
+    ('Desire 12','HTC',3,26000);
+
+
+SELECT * from products where product_name LIKE '%esire%';
+SELECT * from products ORDER BY price desc;
+SELECT * from products order by product_name;
+SELECT *from products order by product_name desc limit 3;
+SELECT * from products order by product_name desc limit all offset 3;
+SELECT * from products where price in (71000,56000,26000,46000);
+SELECT price,'Apple'  from  products;
+delete  from products where manufacturer like '%HTC';
+SELECT avg(price) as avarage_price from products
